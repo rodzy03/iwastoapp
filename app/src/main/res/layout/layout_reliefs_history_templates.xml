@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/resident_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#FCFCFD"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:padding="5dp"
+            android:background="#F7F7F7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/resident_image"
+            android:src="@drawable/def_pro"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout">
+                <LinearLayout
+
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    >
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <LinearLayout
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:id="@+id/username"
+                                android:text="assad"
+                                android:textColor="#000"
+                                android:textSize="12dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:textStyle="bold"
+                                android:textAllCaps="true"
+                                />
+                            <TextView
+                                android:textSize="11dp"
+                                android:layout_marginLeft="5dp"
+                                android:id="@+id/major_area"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text=""
+                                android:textColor="#000"/>
+
+                        </LinearLayout>
+                        <TextView
+
+                            android:id="@+id/barangay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:text="Control"
+                            android:textAlignment="textStart"
+                            android:layout_marginLeft="12dp"
+                            android:textColor="#000"
+                            android:textSize="9dp" />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <Button
+                android:layout_margin="2dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins"
+                android:backgroundTint="#1F2D30"
+                android:layout_marginRight="5dp"
+                android:tint="#fff"
+                android:background="@drawable/roundrec_button_users"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/edit"
+                android:id="@+id/resident_reliefhistory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Relief Issued"
+                android:textColor="#fff"
+                android:textSize="8dp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C9C9C9"
+        ></LinearLayout>
+</LinearLayout>
