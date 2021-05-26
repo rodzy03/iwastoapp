@@ -51,7 +51,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         loading = new Loading(  Register.this, "Processing");
-        new get_zipcodes(getApplicationContext()).execute();
+
 
         city_spinner = findViewById(R.id.city_spinner);
         barangay_spinner = findViewById(R.id.barangay_spinner);
@@ -97,7 +97,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-
+        new get_zipcodes(getApplicationContext()).execute();
 
     }
     public class submit_registration extends AsyncTask<String, Void, String> {

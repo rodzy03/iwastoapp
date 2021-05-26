@@ -8,8 +8,9 @@
     android:orientation="vertical"
     >
     <LinearLayout
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#ededed"
         >
@@ -18,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             >
             <TextView
 
@@ -51,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-
+            android:layout_marginBottom="20dp"
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -84,7 +85,6 @@
 
 
 
-
     </LinearLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -101,5 +101,12 @@
             app:itemTextColor="#fff"
             app:menu="@menu/menu_dashboard"
             />
+    <FrameLayout
+        android:layout_marginTop="120dp"
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
 </RelativeLayout>

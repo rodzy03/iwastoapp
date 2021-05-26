@@ -9,7 +9,9 @@ public class EndPoints {
     public static String login = "login-mobile";
     public static String get_profile = "get-profile";
     public static String get_all = "getall";
+    public static String getPHCases = "getPHCasesNo";
     public static String forgot_password = "forgot-password";
+
 
 
 }

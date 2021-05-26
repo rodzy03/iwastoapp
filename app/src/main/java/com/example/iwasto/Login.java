@@ -75,10 +75,12 @@ public class Login extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-
+        String pubkey = preferences.getString("pubkey", "");
+        if(pubkey != "") {
+            startActivity(new Intent(Login.this, MainNavigation.class));
+        }
         login_gmail_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,11 +1,14 @@
 package com.example.iwasto;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,8 +23,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Locale;
 
@@ -38,7 +47,8 @@ public class MainNavigation extends AppCompatActivity {
         checkAndAskForLocationPermission();
         lastknowlat = preferences.getString("lastknowlat", "");
         lastknowlong = preferences.getString("lastknowlong", "");
-
+        Fragment fragment = new fragment_map();
+        loadFragment(fragment);
         try {
 
             LocationManager locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
@@ -158,4 +168,64 @@ public class MainNavigation extends AppCompatActivity {
                 // Permission has already been granted
             }
     }
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Fragment fragment = new fragment_map();
+            switch (item.getItemId()) {
+                case R.id.home:
+
+                    loadFragment(fragment);
+                    return true;
+
+
+            }
+            return false;
+        }
+    };
+
+    @Override
+    public void onBackPressed() {
+
+        Fragment fragment = new fragment_map();
+        loadFragment(fragment);
+        super.onBackPressed();
+    }
+
+    public void loadFragment(Fragment fragment) {
+
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).addToBackStack("my_fragment").commit();
+
+    }
+
+    static class BottomNavigationViewHelper {
+
+        @SuppressLint("RestrictedApi")
+        static void removeShiftMode(BottomNavigationView view) {
+            BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
+            try {
+                Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
+                shiftingMode.setAccessible(true);
+                shiftingMode.setBoolean(menuView, false);
+                shiftingMode.setAccessible(false);
+                for (int i = 0; i < menuView.getChildCount(); i++) {
+                    BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
+                    item.setShifting(false);
+                    // set once again checked value, so view will be updated
+                    item.setChecked(item.getItemData().isChecked());
+                }
+            } catch (NoSuchFieldException e) {
+                Log.e("ERROR NO SUCH FIELD", "Unable to get shift mode field");
+            } catch (IllegalAccessException e) {
+                Log.e("ERROR ILLEGAL ALG", "Unable to change value of shift mode");
+            }
+        }
+    }
+
 }

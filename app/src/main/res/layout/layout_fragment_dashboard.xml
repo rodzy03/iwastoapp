@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        mapbox:mapbox_cameraTargetLat="14.5995"
+        mapbox:mapbox_cameraTargetLng="120.9842"
+        mapbox:mapbox_cameraZoom="10"
+
+        mapbox:mapbox_styleUrl="mapbox://styles/mapbox/light-v10"
+        >
+        <!--mapbox:mapbox_styleUrl="mapbox://styles/mapbox/satellite-streets-v11"-->
+
+    </com.mapbox.mapboxsdk.maps.MapView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="2dp"
+        mapbox:cardElevation="2dp"
+        android:id="@+id/routes_card"
+        android:visibility="gone"
+        >
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+<!--            <TextView-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Data Source: DOH"-->
+<!--                android:textColor="#DF2F2F"-->
+<!--                android:textStyle="bold"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/cases"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Total Cases: "-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/deaths"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Total Deaths: "-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/recoveries"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Recoveries: "-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/fatality_rate"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Fatality Rate:"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/recovery_rate"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Active Cases:"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/last_update"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Last Update: "-->
+<!--                />-->
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Select Routes"
+        android:id="@+id/select_routes_btn"
+        android:background="@drawable/roundrec_button"
+        android:textColor="@color/white"
+        ></Button>
+
+
+</RelativeLayout>

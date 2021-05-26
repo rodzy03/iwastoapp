@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IWasto</string>
+    <string name="access_token">pk.eyJ1IjoiZXJ5bGdvIiwiYSI6ImNrMHM5YjVhaTAwYTAzY3Byb2xnb2QzNWsifQ.egNisBArBccooR5MJ-Myww</string>
 </resources>
